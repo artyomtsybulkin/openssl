@@ -1,0 +1,26 @@
+# openssl-ca-x509.cnf
+[ req ]
+prompt             = no
+distinguished_name = req_distinguished_name
+x509_extensions    = v3_ca
+default_md         = sha256
+
+[ req_distinguished_name ]
+C  = US
+ST = State
+L  = City
+O  = Organization
+OU = Certificate Authority
+CN = myca.example.com
+
+[ v3_ca ]
+basicConstraints = critical, CA:TRUE, pathlen:0
+keyUsage = critical, keyCertSign, cRLSign
+extendedKeyUsage = serverAuth, clientAuth
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer:always
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = myca.example.com
+DNS.2 = ca.example.com
