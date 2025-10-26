@@ -4,15 +4,16 @@ SSL Certificates and related scripts
 Generating CA certificate for signing server certificates:
 
 ```bash
-mv template.sh config.sh
+mv example_config.sh config.sh
+mv example_hosts.txt hosts.txt
 ```
 
-Correct `hosts.txt` and `config.sh` to match target environment
+Correct `hosts.txt` and `config.sh` to match target environment and then run scripts
 
 ```bash
-chmod +x makeca.sh makeservers.sh
-./makeca.sh
-./makeservers.sh
+chmod +x make_ca.sh make_servers.sh
+./make_ca.sh
+./make_servers.sh
 ```
 
 Result directory structure:
